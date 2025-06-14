@@ -33,6 +33,11 @@ export default function LoginScreen() {
     }
   };
 
+  const dev_login = async () => {
+    router.replace('/(tabs)/Dashboard');
+  }
+    
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Welcome back 👋</Text>
@@ -54,7 +59,7 @@ export default function LoginScreen() {
       />
       {loading
         ? <ActivityIndicator />
-        : <Button title="Log in" onPress={handleLogin} />
+        : <Button title="Log in" onPress={dev_login} />
       }
       <View style={styles.footer}>
         <Text>Don't have an account?</Text>

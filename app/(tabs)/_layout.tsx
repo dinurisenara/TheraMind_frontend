@@ -10,11 +10,13 @@ export default function RootLayout() {
     <Button
       title="Log Out"
       onPress={async () => {
-        await signOut();
+       // await signOut();
         router.replace('/login');
       }}
     />
   );
+
+  
   return(
   <Tabs >
     
