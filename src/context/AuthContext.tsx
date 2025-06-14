@@ -59,6 +59,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   const signOut = async () => {
+    console.log('signOut token', token);
     if (token) await logoutApi(token);
     await AsyncStorage.removeItem('userToken');
     setToken(null);

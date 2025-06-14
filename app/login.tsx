@@ -1,5 +1,5 @@
 // app/login.tsx
-import { useState } from 'react';
+import { useState , useEffect} from 'react';
 import { View, Text, TextInput, Button, StyleSheet, ActivityIndicator } from 'react-native';
 import { useAuth } from '../src/context/AuthContext';
 import { useRouter } from 'expo-router';
@@ -14,10 +14,11 @@ export default function LoginScreen() {
   const [error, setError] = useState<string | null>(null);
 
   // If already signed in, go to tabs
-  if (token) {
-    router.replace('/(tabs)/Dashboard');
-    return null;
-  }
+  useEffect(() => {
+    if (token) {
+      router.replace('/(tabs)/Dashboard');  // or '/chat' or whatever your landing tab is
+    }
+  }, [token]);
 
   const handleLogin = async () => {
     setLoading(true);
